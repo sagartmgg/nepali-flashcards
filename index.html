@@ -104,7 +104,7 @@
 
   <!-- SUB BUTTONS FOR PHRASES -->
   <div id="phrases" class="sub-buttons">
-    <button onclick="showCards('greetings')">Greetings</button>
+    <button onclick="showCards('greetings')">Greetings & Farewell</button>
     <button onclick="showCards('introduction')">Introduction</button>
     <button onclick="showCards('shopping')">Shopping</button>
   </div>
@@ -122,40 +122,107 @@
       <div class="flashcard" onclick="flipCard(this)">
         <div class="card-inner">
           <div class="card-front">Hello</div>
-          <div class="card-back">नमस्ते</div>
+          <div class="card-back">namaste</div>
         </div>
       </div>
       <div class="flashcard" onclick="flipCard(this)">
         <div class="card-inner">
-          <div class="card-front">Good morning</div>
-          <div class="card-back">शुभ प्रभात</div>
-        </div>
-      </div>
-      <div class="flashcard" onclick="flipCard(this)">
-        <div class="card-inner">
-          <div class="card-front">How are you?</div>
-          <div class="card-back">तपाईंलाई कस्तो छ?</div>
-        </div>
-      </div>
-    </div>
-
-    <div id="introduction" class="card-container" style="display: none">
-      <div class="flashcard" onclick="flipCard(this)">
-        <div class="card-inner">
-          <div class="card-front">My name is...</div>
-          <div class="card-back">मेरो नाम ... हो</div>
-        </div>
-      </div>
-      <div class="flashcard" onclick="flipCard(this)">
-        <div class="card-inner">
-          <div class="card-front">I am from...</div>
-          <div class="card-back">म ... बाट आएको हुँ</div>
+          <div class="card-front">what's up</div>
+          <div class="card-back">ke chha</div>
         </div>
       </div>
       <div class="flashcard" onclick="flipCard(this)">
         <div class="card-inner">
           <div class="card-front">Nice to meet you</div>
-          <div class="card-back">तपाईलाई भेटेर खुसी लाग्यो</div>
+          <div class="card-back">tapaailaai bhetera khusi laagyo</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">How are you?</div>
+          <div class="card-back">tapaai kasto hunuhunchha</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">i am fine</div>
+          <div class="card-back">ma sanchai chhu </div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">see you again</div>
+          <div class="card-back">feri bhetaulaa </div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">see you later</div>
+          <div class="card-back">pachhi bhetaulaa </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction" class="card-container" style="display: none">
+      
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">what is your name ?</div>
+          <div class="card-back">tapaaiko naam ke ho ?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">My name is...</div>
+          <div class="card-back">mero naam ... ho</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">where are you from ?</div>
+          <div class="card-back">tapaai kahaa baataa hunuhunchha</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">I am from...</div>
+          <div class="card-back">ma ... baataa ho</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">where do you live ?</div>
+          <div class="card-back">tapaai kahaa basnuhunchha ?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">i live in ... ?</div>
+          <div class="card-back">ma ... maa baschhu ?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">what work do you do ?</div>
+          <div class="card-back">tapaai ke kaam garnuhunchha ?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">i am ... ?</div>
+          <div class="card-back">ma ... ho ?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">how old are you ?</div>
+          <div class="card-back">tapaai kati barsa hunubhayo ?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">i am ... years old ?</div>
+          <div class="card-back">ma ... barsa bhae ?</div>
         </div>
       </div>
     </div>
@@ -266,23 +333,5 @@
     }
   </script>
 
-  <!--
-    === GUIDE ===
-    ✱ To add new categories:
-      - Duplicate a button under either #phrases or #words with a new onclick="showCards('yourId')"
-      - Create a <div id="yourId" class="card-container"> block with flashcards below
-
-    ✱ To add new flashcards:
-      <div class="flashcard" onclick="flipCard(this)">
-        <div class="card-inner">
-          <div class="card-front">English</div>
-          <div class="card-back">नेपाली</div>
-        </div>
-      </div>
-
-    ✱ To change the look:
-      - Adjust card size, color, shadows in CSS
-      - Replace hover with click flip via JavaScript if you want
-  -->
 </body>
 </html>
