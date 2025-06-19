@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eng ↔︎ Nepali Flashcards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e2f;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .main-buttons button,
+    .sub-buttons button {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    .sub-buttons {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      justify-items: center;
+    }
+
+    .flashcard {
+      background-color: transparent;
+      width: 180px;
+      height: 120px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background-color: #292946;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background-color: #3e3e60;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eng ↔︎ Nepali Flashcards</h1>
+
+  <!-- MAIN CATEGORY BUTTONS -->
+  <div class="main-buttons">
+    <button onclick="toggleSub('phrases')">Phrases</button>
+    <button onclick="toggleSub('words')">Words</button>
+  </div>
+
+  <!-- SUB BUTTONS FOR PHRASES -->
+  <div id="phrases" class="sub-buttons">
+    <button onclick="showCards('greetings')">Greetings</button>
+    <button onclick="showCards('introduction')">Introduction</button>
+    <button onclick="showCards('shopping')">Shopping</button>
+  </div>
+
+  <!-- SUB BUTTONS FOR WORDS -->
+  <div id="words" class="sub-buttons">
+    <button onclick="showCards('verbs')">Verbs</button>
+    <button onclick="showCards('nouns')">Nouns</button>
+    <button onclick="showCards('random')">Random Words</button>
+  </div>
+
+  <!-- FLASHCARD SECTIONS -->
+  <div id="flashcard-section">
+    <div id="greetings" class="card-container" style="display: none">
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Hello</div>
+          <div class="card-back">नमस्ते</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Good morning</div>
+          <div class="card-back">शुभ प्रभात</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">How are you?</div>
+          <div class="card-back">तपाईंलाई कस्तो छ?</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction" class="card-container" style="display: none">
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">My name is...</div>
+          <div class="card-back">मेरो नाम ... हो</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">I am from...</div>
+          <div class="card-back">म ... बाट आएको हुँ</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Nice to meet you</div>
+          <div class="card-back">तपाईलाई भेटेर खुसी लाग्यो</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="shopping" class="card-container" style="display: none">
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">How much is this?</div>
+          <div class="card-back">यो कति हो?</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">I want to buy this</div>
+          <div class="card-back">म यो किन्न चाहन्छु</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Do you have change?</div>
+          <div class="card-back">तपाईंसँग साना नोट छन्?</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="verbs" class="card-container" style="display: none">
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Go</div>
+          <div class="card-back">जानु</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Eat</div>
+          <div class="card-back">खानु</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Sleep</div>
+          <div class="card-back">सुत्नु</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="nouns" class="card-container" style="display: none">
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">House</div>
+          <div class="card-back">घर</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Water</div>
+          <div class="card-back">पानी</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Book</div>
+          <div class="card-back">पुस्तक</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="random" class="card-container" style="display: none">
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Yes</div>
+          <div class="card-back">हो</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">No</div>
+          <div class="card-back">होइन</div>
+        </div>
+      </div>
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">Maybe</div>
+          <div class="card-back">सायद</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSub(category) {
+      document.getElementById('phrases').classList.remove('visible');
+      document.getElementById('words').classList.remove('visible');
+      const cardSections = document.querySelectorAll('.card-container');
+      cardSections.forEach(section => section.style.display = 'none');
+      document.getElementById(category).classList.add('visible');
+    }
+
+    function showCards(categoryId) {
+      const sections = document.querySelectorAll('.card-container');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(categoryId).style.display = 'grid';
+    }
+
+    function flipCard(cardElement) {
+      const inner = cardElement.querySelector('.card-inner');
+      inner.classList.toggle('flipped');
+    }
+  </script>
+
+  <!--
+    === GUIDE ===
+    ✱ To add new categories:
+      - Duplicate a button under either #phrases or #words with a new onclick="showCards('yourId')"
+      - Create a <div id="yourId" class="card-container"> block with flashcards below
+
+    ✱ To add new flashcards:
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front">English</div>
+          <div class="card-back">नेपाली</div>
+        </div>
+      </div>
+
+    ✱ To change the look:
+      - Adjust card size, color, shadows in CSS
+      - Replace hover with click flip via JavaScript if you want
+  -->
+</body>
+</html>
